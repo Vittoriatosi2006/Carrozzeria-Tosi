@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chi siamo?</title>
+    <link rel="stylesheet" href="chi-siamo.css" />
+     <link rel="icon" href="icon.png" type="image/png">
+  </head>
+  <body>
+    <main>
+        <!--prima-parte-->
+        <img src="babboEzio.png" class="babboEzio" />
+        <h1 class="titolo">
+          <span class="chiSiamo">CHI SIAMO</span>
+          <span class="front-text">
+            <span class="chi">CHI</span>
+            <span class="siamo">SIAMO?</span>
+          </span>
+        </h1>
+        <p class="paragrafo">
+          Da oltre 20 anni trasformiamo auto danneggiate in veri e propri
+          gioielli su quattro ruote. La nostra passione per i dettagli e
+          l’attenzione alla qualità ci permettono di restituire ai nostri
+          clienti veicoli perfetti, sia nell’estetica che nella funzionalità.
+          Dalla verniciatura impeccabile alla riparazione di ammaccature, fino
+          al restauro completo di carrozzerie antiche, ogni intervento viene
+          eseguito con strumenti all’avanguardia e materiali di prima scelta. Il
+          nostro team è pronto a consigliarti, guidarti nella scelta dei colori
+          e dei trattamenti, e a garantire risultati che superano le
+          aspettative. Da noi l’auto non è solo un mezzo di trasporto, ma
+          un’espressione di stile e cura: perché ogni veicolo merita di brillare
+          come nuovo.
+        </p>
+      <!--seconda-parte-->
+      <section class="info-chi-siamo">
+       <h2>Dove trovarci</h2>
+        <p class="intro">
+        Siamo a Ponsacco da anni. Passa a trovarci o contattaci: siamo sempre felici di aiutarti.
+        </p>
+        <div class="info-cards">
+          <div class="info-card">
+          <span class="icon">📍</span>
+          <h3>Indirizzo</h3>
+           <a 
+      href="https://www.google.com/maps/search/?api=1&query=Via+Napoli+9,+Ponsacco+PI" 
+      target="_blank"
+    >
+      Via Napoli 9<br><strong>Ponsacco (PI)</strong> </a>
+        </div>
+        <div class="info-card">
+         <span class="icon">🕒</span>
+         <h3>Orari</h3>
+         <p>
+        Lun–Sab<br>
+        08:00–12:30<br>
+        14:00–18:00<br>
+        Domenica chiuso
+         </p>
+        </div>
+        <div class="info-card">
+         <span class="icon">📞</span>
+         <h3>Contatti</h3>
+          <a href="tel:+393664985000">📞 Luca: 366.4985000</a> <br>
+      <a href="tel:+393389086396">📞 Carlo: 338.9086396</a>
+         </div>
+    
+         <div class="info-card">
+          <span class="icon">✉️</span>
+          <h3>Email</h3>
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=fratellitosicarrozzeria@gmail.com">fratellitosicarrozzeria@gmail.com</a>
+         </div>
+         </div>
+       </section>
+      </div>
+    </main>
+  </body>
+  <script>
+  const cards = document.querySelectorAll('.info-card');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  cards.forEach(card => observer.observe(card));
+</script>
+
+</html>
