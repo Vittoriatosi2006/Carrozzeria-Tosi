@@ -551,6 +551,29 @@ text-decoration:underline;
  .testi-servizi ul {
     font-size: 20px;
   }
+
+  /*quarta parte*/
+   .quarta-parte {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 260px; /* 👈 questa è la chiave */
+    padding: 60px 40px;
+  }
+
+  .quarta-parte img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .g1 { grid-column: 1; grid-row: 1; }
+.g3 { grid-column: 1; grid-row: 2; }
+.g4 { grid-column: 2; grid-row: 1; }
+.g5 { grid-column: 2; grid-row: 2; }
+
+.g2,
+.g6 {
+  display: none;
+}
+
 }
 
 @media screen and (max-width: 726px) {
@@ -661,21 +684,26 @@ text-decoration:underline;
   }
 
   /* QUARTA PARTE */
-  .quarta-parte {
-    grid-template-columns: 1fr;
-    padding: 50px 20px;
+    .quarta-parte {
+    grid-auto-rows: 210px;
+    gap: 25px;
+    padding: 50px 35px;
   }
 
   .g1,
-  .g2,
   .g3,
   .g4,
-  .g5,
-  .g6 {
+  .g5 {
     grid-column: auto;
     grid-row: auto;
     height: auto;
     width: 100%;
+  }
+   .g2{
+    display: none;
+  }
+  .g6{
+    display: none;
   }
 
   /* FOOTER */
@@ -766,5 +794,13 @@ text-decoration:underline;
 
 .testi-servizi ul {
     font-size: 15px;
+  }
+
+  /*4 PARTE*/
+   .g2{
+    display: none;
+  }
+  .g6{
+    display: none;
   }
 }
