@@ -101,20 +101,20 @@ h3 {
 /* Prima parte */
 .prima-parte {
   width: 100vw;
-  height: 700px;
+  height: 690px;
 }
 
 .sfondo {
   width: 100vw;
-  height: 700px;
+  height: 680px;
   object-fit: cover;
 }
 
 .overlay {
   position: absolute;
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  height: 120%;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .scritte-primaPagina {
@@ -139,16 +139,16 @@ h3 {
 /*seconda parte*/
 .seconda-parte {
   position: relative;
-  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 80px;
-  padding: 0 20px;
-  height: 90vh;
+  min-height: 80vh;
+  width: 100%;
+  overflow: hidden;
   background-color: rgb(158, 159, 162);
-  
 }
+
+
 .decorazioni-50 .cerchio {
   position: absolute;
   border-radius: 50%;
@@ -235,13 +235,12 @@ h3 {
     transform: translateY(0px) translateX(0px);
   }
 }
+
 .foto-container {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 80px;
-  margin: 0 auto;
-  padding-right: 50px;
 }
 
 .foto50anni {
@@ -478,3 +477,294 @@ text-decoration:underline;
 .footer-section:nth-child(2) { transition-delay: 0.4s; }
 .footer-section:nth-child(3) { transition-delay: 0.6s; }
 .footer-section:nth-child(4) { transition-delay: 0.8s; }
+
+
+
+@media screen and (max-width: 1500px){
+/* SECONDA PARTE */
+  .seconda-parte {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  width: 100%;
+  overflow: hidden;
+  background-color: rgb(158, 159, 162);
+  overflow-x: scroll;
+}
+
+.foto-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+}
+
+.foto50anni {
+  z-index: 2;
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+}
+
+@media screen and (max-width: 1300px){
+/* SECONDA PARTE */
+  .seconda-parte {
+    flex-direction: column;
+    min-height: auto;
+    gap: 30px;
+    padding: 40px 0px;
+  }
+
+  .foto-container {
+    flex-direction: column;
+    gap: 30px;
+    padding-right: 0;
+  }
+
+  .foto50anni {
+    width: 500px;
+    height: 500px;
+  }
+
+  
+  /* TERZA PARTE */
+  .terza-parte {
+    height: auto;
+    padding: 80px 15px;
+  }
+
+  .testi-servizi span {
+    font-size: 35px;
+  }
+
+  .blocchi-punti {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+ .testi-servizi ul {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 726px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  nav {
+    padding: 0 15px;
+  }
+  /*NAVBAR*/
+.contatti {
+  background-color: transparent;
+  border: 2px solid rgb(144, 56, 56);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: black;
+  text-decoration: none;
+  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: auto;
+
+}
+
+.soccorso-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: auto;
+  padding-right: 0;
+  gap: 5px;
+
+}
+
+.soccorso-stradale {
+  background-color: rgb(144, 56, 56);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: bold;
+  transition: transform 0.2s ease;
+  padding: 7px 18px;
+  font-size: 12px;
+}
+
+  .sfondo-navbar {
+    width: 150px;
+    height: auto;
+  }
+
+  /* PRIMA PARTE */
+  .prima-parte {
+    width: 100%;
+    height: 100vh;
+  }
+
+  .sfondo {
+    width: 100%;
+    height: 100vh;
+  }
+
+  h1 {
+    font-size: 8vw;
+    padding-bottom: 10px
+  }
+
+  h2 {
+    font-size: 4vw;
+  }
+  h3 {
+  padding: 20px 0;
+  font-size: 4vw;
+  line-height: 1.5;
+
+}
+
+/* SECONDA PARTE */
+  .foto50anni {
+    width: 300px;
+    height: 300px;
+  }
+  
+
+  /* TERZA PARTE */
+  .terza-parte {
+    height: auto;
+    padding: 80px 15px;
+  }
+
+  .testi-servizi span {
+    font-size: 24px;
+  }
+
+  .blocchi-punti {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .testi-servizi ul {
+    font-size: 15px;
+  }
+
+  /* QUARTA PARTE */
+  .quarta-parte {
+    grid-template-columns: 1fr;
+    padding: 50px 20px;
+  }
+
+  .g1,
+  .g2,
+  .g3,
+  .g4,
+  .g5,
+  .g6 {
+    grid-column: auto;
+    grid-row: auto;
+    height: auto;
+    width: 100%;
+  }
+
+  /* FOOTER */
+  .footer-container {
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 20px;
+  }
+
+  .footer-section h3 {
+    font-size: 18px;
+  }
+
+  .footer-section p,
+  .footer-section a {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  nav {
+    padding: 0 10px;
+  }
+  /*NAVBAR*/
+  .soccorso-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* stessa larghezza */
+    gap: 6px;
+    width: auto;
+    padding: 0;
+  }
+  .contatti {
+    border: 2px solid rgb(144, 56, 56);
+    border-radius: 6px;
+    color: black;
+    text-decoration: none;
+    font-size: 10px;
+    padding: 4px 8px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+  }
+  .soccorso-stradale {
+    background-color: rgb(144, 56, 56);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 10px;
+    padding: 6px 8px;
+    text-align: center;
+    width: 100%;
+    white-space: nowrap;
+  }
+
+  .sfondo-navbar {
+    width: 120px;
+    height: auto;
+  }
+
+  /* SECONDA PARTE */
+  .foto50anni {
+    width: 200px;
+    height: 200px;
+  }
+  
+  /* TERZA PARTE */
+  .terza-parte {
+    height: auto;
+    padding: 80px 15px;
+  }
+
+  .testi-servizi span {
+    font-size: 30px;
+  }
+
+  .blocchi-punti {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+.testi-servizi ul {
+    font-size: 15px;
+  }
+}
