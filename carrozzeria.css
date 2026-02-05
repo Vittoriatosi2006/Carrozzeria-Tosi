@@ -276,6 +276,140 @@ h3 {
 }
 
 
+/* ===== OMINO CARINO ===== */
+.omino {
+  position: absolute;
+  bottom: 40px;
+  right: 70px;
+  z-index: 5;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.omino:hover {
+  transform: translateY(-5px);
+}
+.testa {
+  width: 42px;
+  height: 42px;
+  background: white;
+  border-radius: 50%;
+  margin: 0 auto;
+  position: relative;
+}
+.occhio {
+  width: 6px;
+  height: 6px;
+  background: #333;
+  border-radius: 50%;
+  position: absolute;
+  top: 14px;
+}
+.occhio.sinistro { left: 10px; }
+.occhio.destro { right: 10px; }
+.bocca {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  width: 14px;
+  height: 6px;
+  border-bottom: 2px solid #333;
+  border-radius: 0 0 10px 10px;
+  transform: translateX(-50%);
+}
+.corpo {
+  width: 22px;
+  height: 48px;
+  background: white;
+  border-radius: 12px;
+  margin: 6px auto 0;
+}
+.braccio {
+  width: 8px;
+  height: 35px;
+  background: white;
+  position: absolute;
+  top: 55px;
+  border-radius: 10px;
+}
+.braccio.sinistro {
+  left: -10px;
+  transform-origin: top center;
+  transform: rotate(-20deg);
+}
+.braccio.destro {
+  right: -10px;
+  transform-origin: top center;
+  transform: rotate(20deg);
+}
+.gambe {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+.gamba {
+  width: 8px;
+  height: 30px;
+  background: white;
+  border-radius: 10px;
+}
+.fumetto {
+  position: absolute;
+  bottom: 40%;
+  right: 180%;
+  transform: translateY(-50%) translateX(10px);
+  background: white;
+  color: #333;
+  padding: 12px 16px;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  width: 100px;
+  height: 100px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+.fumetto::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: -8px;
+  transform: translateY(-100%);
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 20px solid white;
+}
+
+.omino:hover .fumetto {
+  opacity: 1;
+  transform: translateY(0);
+}
+.omino:hover .braccio.sinistro {
+  animation: alzaSinistra 0.5s ease forwards;
+}
+.omino:hover .braccio.destro {
+  animation: alzaDestra 0.5s ease forwards;
+}
+@keyframes alzaSinistra {
+  from {
+    transform: rotate(20deg);
+  }
+  to {
+    transform: rotate(140deg);
+  }
+}
+@keyframes alzaDestra {
+  from {
+    transform: rotate(-20deg);
+  }
+  to {
+    transform: rotate(-140deg);
+  }
+}
+
+
 /*terza parte*/
 .terza-parte {
   position: relative;
@@ -670,6 +804,14 @@ h3 {
   justify-content: center;
 }
 
+/*2 PARTE*/
+.omino {
+  transform: scale(0.7);
+  transform-origin: bottom right;
+  right: 20px;
+  bottom: 20px;
+}
+
 /* TERZA PARTE */
 .terza-parte {
   height: auto;
@@ -777,6 +919,14 @@ nav {
 .sfondo-navbar {
   width: 120px;
   height: auto;
+}
+
+/*2 PARTE*/
+.omino {
+  transform: scale(0.55);
+  transform-origin: bottom right;
+  right: 50px;
+  bottom: 15px;
 }
 
 /* TERZA PARTE */
