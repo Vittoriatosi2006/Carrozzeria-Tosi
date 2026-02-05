@@ -236,9 +236,10 @@ h3 {
 
 .foto50anni {
   flex: 0 0 auto; 
-  width: 400px;   
-  height: 400px;  
+  max-width: 400px;   
+  max-height: 350px;  
   scroll-snap-align: start; 
+  border-radius: 30px;
   display: block; 
   transition: transform 0.3s ease;/
 }
@@ -499,6 +500,22 @@ text-decoration:underline;
 
 
 @media screen and (max-width: 1300px){
+  
+/* PRIMA PARTE */
+.prima-parte {
+  width: 100%;
+  height: 100vh;
+}
+
+.sfondo {
+  width: 100%;
+  height: 100vh;
+}
+
+.scritte-primaPagina{
+  justify-content: center;
+}
+
   /* TERZA PARTE */
 .terza-parte {
   height: auto;
@@ -648,6 +665,9 @@ h3 {
   padding: 20px 0;
   font-size: 4vw;
   line-height: 1.5;
+}
+.scritte-primaPagina{
+  justify-content: center;
 }
 
 /* TERZA PARTE */
