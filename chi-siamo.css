@@ -4,60 +4,61 @@
   box-sizing: border-box;
 }
 
+html,
 body {
+  width: 100%;
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
   background: #c5cad6;
 }
 
 main {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 90vh auto;
-  border-top: 70px solid #c5cad6;
-  overflow-x: hidden;
+  grid-template-rows: auto auto;
+  gap: 40px;
+  padding: 40px 20px;
 }
 
-/*prima-parte*/
-
+/*1 parte*/
 .babboEzio {
-  grid-column: 1;
-  grid-row: 1;
-  width: 500px;
-  height: 500px;
-  z-index: 3;
-  transform: translateX(0);
-  transition: transform 0.5s ease-out;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
   border-radius: 20px;
   border: 5px solid rgba(176, 168, 168, 0.3);
   box-shadow: 0 0 20px rgba(139, 129, 129, 0.2);
-  margin-left: 60px;
+  justify-self: center;
+  align-self: center;
+  transition: transform 0.5s ease-out;
 }
 
 .titolo {
-  grid-column: 2;
-  grid-row: 1;
-  height: 160px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: Arial, sans-serif;
+  text-align: center;
+  font-weight: 800;
   border-right: 10px solid #9ea8c0;
   border-bottom: 30px solid #9ea8c0;
+  padding: 20px;
 }
 
 .chiSiamo {
-  position: absolute;
-  font-size: 110px;
+  font-size: 8vw;
   font-weight: 900;
   color: rgba(255, 255, 255, 0.08);
-  letter-spacing: 10px;
-  z-index: 1;
+  letter-spacing: 0.5vw;
+  position: absolute;
   user-select: none;
   -webkit-text-stroke: 1px rgb(220, 215, 215);
+  z-index: 1;
 }
 
 .front-text {
-  font-size: 64px;
-  font-weight: 800;
+  font-size: 4vw;
+  color: white;
   z-index: 2;
 }
 
@@ -80,47 +81,48 @@ main {
 }
 
 .paragrafo {
-  grid-column: 2;
-  grid-row: 1;
-  display: flex;
-  justify-content: center;
-  height: 220px;
-  width: 700px;
-  padding-top: 200px;
-  font-size: 20px;
-  line-height: 34px;
+  grid-column: 1 / -1;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: 1.5rem;
+  line-height: 1.8;
   color: rgb(100, 132, 212);
+  padding: 20px;
 }
 
-/*seconda-parte*/
+/*2 parte*/
 .info-chi-siamo {
-  padding: 80px 60px;
+  padding: 80px 20px;
   background: linear-gradient(to bottom, #ffffff, #9ea8c0);
-  font-family: sans-serif;
   grid-column: 1 / -1;
-  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .info-chi-siamo h2 {
-  text-align: center;
-  font-size: 36px;
-  margin-bottom: 15px;
+  font-size: 2.5rem;
   color: rgb(144, 56, 56);
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .intro {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto 60px;
-  font-size: 18px;
+  font-size: 1rem;
   line-height: 1.6;
   color: #444;
+  text-align: center;
+  max-width: 700px;
+  margin-bottom: 50px;
 }
 
 .info-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 40px;
+  gap: 30px;
+  width: 100%;
+  max-width: 1500px;
 }
 
 .info-card {
@@ -135,6 +137,15 @@ main {
   opacity: 0;
   transform: translateY(50px);
 }
+
+.info-card.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
 .info-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 25px 40px rgba(0, 0, 0, 0.12);
@@ -142,26 +153,21 @@ main {
 
 .info-card .icon {
   font-size: 40px;
-  display: block;
   margin-bottom: 15px;
+  display: block;
 }
 
 .info-card h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
   color: rgb(144, 56, 56);
+  font-size: 1.2rem;
+  margin-bottom: 10px;
 }
 
-.info-card p {
-  font-size: 16px;
-  line-height: 1.5;
-  color: #444;
-}
-
+.info-card p,
 .info-card a {
-  font-size: 16px;
-  line-height: 1.5;
+  font-size: 1rem;
   color: #444;
+  line-height: 1.5;
   text-decoration: none;
 }
 
@@ -182,24 +188,39 @@ main {
   transition-delay: 0.8s;
 }
 
-@media (max-width: 768px) {
-  .info-chi-siamo {
-    padding: 60px 25px;
+@media screen and (max-width: 1300px) {
+  main {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
   }
-
-  .info-chi-siamo h2 {
-    font-size: 28px;
-  }
-
-  .info-chi-siamo .intro {
-    font-size: 16px;
+  .info-cards {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
-.info-card.show {
-  opacity: 1;
-  transform: translateY(0);
-  transition:
-    opacity 0.8s ease,
-    transform 0.8s ease;
+@media screen and (max-width: 767px) {
+  .titolo {
+    font-size: 2rem;
+    border-right: none;
+    border-bottom: 15px solid #9ea8c0;
+    padding: 10px;
+  }
+  .chiSiamo {
+    font-size: 12vw;
+    letter-spacing: 2px;
+  }
+  .front-text {
+    font-size: 6vw;
+  }
+  .paragrafo {
+    font-size: 0.9rem;
+    padding-top: 20px;
+  }
+  .info-cards {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .babboEzio {
+    max-width: 80%;
+  }
 }
