@@ -28,11 +28,9 @@ nav {
   justify-content: space-between; 
   padding: 0 50px; 
 }
-
 nav.visible {
   opacity: 1; /
 }
-
 h1{
   font-size: 57px;
 }
@@ -146,30 +144,29 @@ h3 {
   width: 100%;
   overflow: hidden;
   background-color: rgb(158, 159, 162);
+  padding: 0 20px; /* margine a sinistra/destra */
 }
-
 
 .decorazioni-50 .cerchio {
   position: absolute;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.15);
-  z-index: 1; 
+  z-index: 1;
   animation: float 7s ease-in-out infinite alternate;
 }
+
 .c50-1 {
   width: 120px;
   height: 120px;
   top: 40px;
   left: 60px;
 }
-
 .c50-2 {
   width: 80px;
   height: 80px;
   bottom: 60px;
   left: 150px;
 }
-
 .c50-3 {
   width: 60px;
   height: 60px;
@@ -182,7 +179,6 @@ h3 {
   bottom: 100px;
   right: 60px;
 }
-
 .c50-5 {
   width: 50px;
   height: 50px;
@@ -195,28 +191,24 @@ h3 {
   top: 20%;
   left: 300px;
 }
-
 .c50-7 {
   width: 45px;
   height: 45px;
   bottom: 20%;
   left: 400px;
 }
-
 .c50-8 {
   width: 110px;
   height: 110px;
   top: 30%;
   right: 300px;
 }
-
 .c50-9 {
   width: 70px;
   height: 70px;
   bottom: 10%;
   right: 200px;
 }
-
 .c50-10 {
   width: 35px;
   height: 35px;
@@ -238,24 +230,50 @@ h3 {
 
 .foto-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 80px;
+  overflow-x: hidden;
+  scroll-snap-type: x mandatory; 
 }
 
 .foto50anni {
-  z-index: 2;
-  width: 400px;
-  height: 400px;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
+  flex: 0 0 auto; 
+  width: 400px;   
+  height: 400px;  
+  scroll-snap-align: start; 
+  display: block; 
+  transition: transform 0.3s ease;/
 }
 
 .foto50anni:hover {
   transform: scale(1.05);
 }
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+.foto-container::-webkit-scrollbar {
+  display: none;
+}
+.prev, .next {
+  display: block; 
+}
+
 
 /*terza parte*/
 .terza-parte {
@@ -480,133 +498,85 @@ text-decoration:underline;
 
 
 
-@media screen and (max-width: 1500px){
-/* SECONDA PARTE */
-  .seconda-parte {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 80vh;
-  width: 100%;
-  overflow: hidden;
-  background-color: rgb(158, 159, 162);
-  overflow-x: scroll;
-}
-
-.foto-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 80px;
-}
-
-.foto50anni {
-  z-index: 2;
-  width: 350px;
-  height: 350px;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
-}
-}
-
 @media screen and (max-width: 1300px){
-/* SECONDA PARTE */
-  .seconda-parte {
-    flex-direction: column;
-    min-height: auto;
-    gap: 30px;
-    padding: 40px 0px;
-  }
-
-  .foto-container {
-    flex-direction: column;
-    gap: 30px;
-    padding-right: 0;
-  }
-
-  .foto50anni {
-    width: 500px;
-    height: 500px;
-  }
-
-  
   /* TERZA PARTE */
-  .terza-parte {
-    height: auto;
-    padding: 80px 15px;
-  }
-
-  .testi-servizi span {
-    font-size: 35px;
-  }
-
-  .blocchi-punti {
-    flex-direction: column;
-    gap: 25px;
-  }
-
- .testi-servizi ul {
-    font-size: 20px;
-  }
-
-  /*quarta parte*/
-   .quarta-parte {
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 260px; /* 👈 questa è la chiave */
-    padding: 60px 40px;
-  }
-
-  .quarta-parte img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .g1 { grid-column: 1; grid-row: 1; }
-  .g3 { grid-column: 1; grid-row: 2; }
-  .g4 { grid-column: 2; grid-row: 1; }
-  .g5 { grid-column: 2; grid-row: 2; }
-
-  .g2,
-  .g6 {
-    display: none;
-   }
+.terza-parte {
+  height: auto;
+  padding: 80px 15px;
 }
+
+.testi-servizi span {
+  font-size: 35px;
+}
+
+.blocchi-punti {
+  flex-direction: column;
+  gap: 25px;
+}
+
+.testi-servizi ul {
+  font-size: 20px;
+}
+
+/*quarta parte*/
+.quarta-parte {
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 260px; 
+  padding: 60px 40px;
+}
+
+.quarta-parte img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+  
+.g1 { grid-column: 1; grid-row: 1; }
+.g3 { grid-column: 1; grid-row: 2; }
+.g4 { grid-column: 2; grid-row: 1; }
+.g5 { grid-column: 2; grid-row: 2; }
+.g2,
+.g6 {
+  display: none;
+  }
+}
+
 
 @media screen and (max-width: 1054px){
- .footer-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;  /* 👈 due colonne */
-    gap: 30px;
-    padding: 0 20px;
-  }
+ 
+  /*FOOTER*/
+.footer-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;  
+  gap: 30px;
+  padding: 0 20px;
+}
 
-  .footer-section {
-    width: 100%;
-  }
+.footer-section {
+  width: 100%;
+}
 
-  .footer-section h3 {
-    font-size: 18px;
-  }
+.footer-section h3 {
+  font-size: 18px;
+}
 
-  .footer-section p,
-  .footer-section a {
-    font-size: 14px;
-  }
+.footer-section p,
+.footer-section a {
+  font-size: 14px;
+}
 }
 
 
 @media screen and (max-width: 726px) {
-  body {
-    overflow-x: hidden;
-  }
+body {
+  overflow-x: hidden;
+}
+/*NAVBAR*/
+nav {
+  padding: 0 15px;
 
-  nav {
-    padding: 0 15px;
-  }
-  /*NAVBAR*/
+}
+
 .contatti {
   background-color: transparent;
   border: 2px solid rgb(144, 56, 56);
@@ -648,198 +618,187 @@ text-decoration:underline;
   font-size: 12px;
 }
 
-  .sfondo-navbar {
-    width: 150px;
-    height: auto;
-  }
+.sfondo-navbar {
+  width: 150px;
+  height: auto;
+}
 
-  /* PRIMA PARTE */
-  .prima-parte {
-    width: 100%;
-    height: 100vh;
-  }
+/* PRIMA PARTE */
+.prima-parte {
+  width: 100%;
+  height: 100vh;
+}
 
-  .sfondo {
-    width: 100%;
-    height: 100vh;
-  }
+.sfondo {
+  width: 100%;
+  height: 100vh;
+}
 
-  h1 {
-    font-size: 8vw;
-    padding-bottom: 10px
-  }
+h1 {
+  font-size: 8vw;
+  padding-bottom: 10px
+}
 
-  h2 {
-    font-size: 4vw;
-  }
-  h3 {
+h2 {
+  font-size: 4vw;
+}
+
+h3 {
   padding: 20px 0;
   font-size: 4vw;
   line-height: 1.5;
-
 }
 
-/* SECONDA PARTE */
-  .foto50anni {
-    width: 300px;
-    height: 300px;
-  }
-  
+/* TERZA PARTE */
+.terza-parte {
+  height: auto;
+  padding: 80px 15px;
+}
 
-  /* TERZA PARTE */
-  .terza-parte {
-    height: auto;
-    padding: 80px 15px;
-  }
+.testi-servizi span {
+  font-size: 24px;
+}
 
-  .testi-servizi span {
-    font-size: 24px;
-  }
+.blocchi-punti {
+  flex-direction: column;
+  gap: 25px;
+}
 
-  .blocchi-punti {
-    flex-direction: column;
-    gap: 25px;
-  }
+.testi-servizi ul {
+  font-size: 15px;
+}
 
-  .testi-servizi ul {
-    font-size: 15px;
-  }
+/* QUARTA PARTE */
+.quarta-parte {
+  grid-auto-rows: 210px;
+  gap: 25px;
+  padding: 50px 35px;
+}
 
-  /* QUARTA PARTE */
-    .quarta-parte {
-    grid-auto-rows: 210px;
-    gap: 25px;
-    padding: 50px 35px;
-  }
+.g1,
+.g3,
+.g4,
+.g5 {
+  grid-column: auto;
+  grid-row: auto;
+  height: auto;
+  width: 100%;
+}
+.g2{
+  display: none;
+}
+.g6{
+  display: none;
+}
 
-  .g1,
-  .g3,
-  .g4,
-  .g5 {
-    grid-column: auto;
-    grid-row: auto;
-    height: auto;
-    width: 100%;
-  }
-   .g2{
-    display: none;
-  }
-  .g6{
-    display: none;
-  }
+/* FOOTER */
+.footer-container {
+  display: flex;  
+  flex-direction: column;
+  gap: 30px;
+  padding: 0 20px;
+}
 
-  /* FOOTER */
-  .footer-container {
-    display: flex;  
-    flex-direction: column;
-    gap: 30px;
-    padding: 0 20px;
-  }
+.footer-section h3 {
+  font-size: 18px;
+}
 
-  .footer-section h3 {
-    font-size: 18px;
-  }
-
-  .footer-section p,
-  .footer-section a {
-    font-size: 14px;
+.footer-section p,
+.footer-section a {
+  font-size: 14px;
   }
 }
 
 @media screen and (max-width: 520px) {
-  body {
-    overflow-x: hidden;
-  }
+body {
+  overflow-x: hidden;
+}
 
-  nav {
-    padding: 0 10px;
-  }
-  /*NAVBAR*/
-  .soccorso-container {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch; /* stessa larghezza */
-    gap: 6px;
-    width: auto;
-    padding: 0;
-  }
-  .contatti {
-    border: 2px solid rgb(144, 56, 56);
-    border-radius: 6px;
-    color: black;
-    text-decoration: none;
-    font-size: 10px;
-    padding: 4px 8px;
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;
-  }
-  .soccorso-stradale {
-    background-color: rgb(144, 56, 56);
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
-    font-size: 10px;
-    padding: 6px 8px;
-    text-align: center;
-    width: 100%;
-    white-space: nowrap;
-  }
+nav {
+  padding: 0 10px;
+}
 
-  .sfondo-navbar {
-    width: 120px;
-    height: auto;
-  }
+/*NAVBAR*/
+.soccorso-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; 
+  gap: 6px;
+  width: auto;
+  padding: 0;
+}
+.contatti {
+  border: 2px solid rgb(144, 56, 56);
+  border-radius: 6px;
+  color: black;
+  text-decoration: none;
+  font-size: 10px;
+  padding: 4px 8px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+.soccorso-stradale {
+  background-color: rgb(144, 56, 56);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 10px;
+  padding: 6px 8px;
+  text-align: center;
+  width: 100%;
+  white-space: nowrap;
+}
 
-  /* SECONDA PARTE */
-  .foto50anni {
-    width: 200px;
-    height: 200px;
-  }
-  
-  /* TERZA PARTE */
-  .terza-parte {
-    height: auto;
-    padding: 80px 15px;
-  }
+.sfondo-navbar {
+  width: 120px;
+  height: auto;
+}
 
-  .testi-servizi span {
-    font-size: 30px;
-  }
+/* TERZA PARTE */
+.terza-parte {
+  height: auto;
+  padding: 80px 15px;
+}
 
-  .blocchi-punti {
-    flex-direction: column;
-    gap: 25px;
-  }
+.testi-servizi span {
+  font-size: 30px;
+}
+
+.blocchi-punti {
+  flex-direction: column;
+  gap: 25px;
+}
 
 .testi-servizi ul {
-    font-size: 15px;
-  }
+  font-size: 15px;
+}
 
-  /*4 PARTE*/
-   .g2{
-    display: none;
-  }
-  .g6{
-    display: none;
-  }
-    /* FOOTER */
-  .footer-container {
-    display: flex;  
-    flex-direction: column;
-    gap: 30px;
-    padding: 0 20px;
-  }
+/*4 PARTE*/
+.g2{
+  display: none;
+}
+.g6{
+  display: none;
+}
 
-  .footer-section h3 {
-    font-size: 18px;
-  }
+/* FOOTER */
+.footer-container {
+  display: flex;  
+  flex-direction: column;
+  gap: 30px;
+  padding: 0 20px;
+}
 
-  .footer-section p,
-  .footer-section a {
-    font-size: 14px;
-  }
+.footer-section h3 {
+  font-size: 18px;
+}
+
+.footer-section p,
+.footer-section a {
+  font-size: 14px;
+}
 }
