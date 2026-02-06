@@ -52,18 +52,14 @@
         <button class="next">&#10095;</button>
         <div class="omino">
           <div class="fumetto">Da oltre 50 anni al vostro fianco 🚗</div>
-
           <div class="testa">
             <span class="occhio sinistro"></span>
             <span class="occhio destro"></span>
             <span class="bocca"></span>
           </div>
-
           <div class="corpo"></div>
-
           <div class="braccio sinistro"></div>
           <div class="braccio destro"></div>
-
           <div class="gambe">
             <div class="gamba sinistra"></div>
             <div class="gamba destra"></div>
@@ -165,8 +161,13 @@
       const images = document.querySelectorAll(".foto50anni");
       const nextBtn = document.querySelector(".next");
       const prevBtn = document.querySelector(".prev");
-
       function showImage(index) {
+        if (window.innerWidth > 1300) {
+          images.forEach((img) => {
+            img.style.display = "block";
+          });
+          return;
+        }
         images.forEach((img, i) => {
           img.style.display = i === index ? "block" : "none";
         });
@@ -180,6 +181,9 @@
         showImage(currentIndex);
       });
       showImage(currentIndex);
+      window.addEventListener("resize", () => {
+        showImage(currentIndex);
+      });
     });
     /*footer*/
     const footerSections = document.querySelectorAll(".footer-section");

@@ -144,7 +144,7 @@ h3 {
   width: 100%;
   overflow: hidden;
   background-color: rgb(158, 159, 162);
-  padding: 0 20px; /* margine a sinistra/destra */
+  padding: 0 20px; 
 }
 
 .decorazioni-50 .cerchio {
@@ -227,54 +227,30 @@ h3 {
     transform: translateY(0px) translateX(0px);
   }
 }
-
 .foto-container {
   display: flex;
   overflow-x: hidden;
-  scroll-snap-type: x mandatory; 
-}
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  overflow-y: hidden
 
+}
 .foto50anni {
-  flex: 0 0 auto; 
-  max-width: 400px;   
-  max-height: 350px;  
-  scroll-snap-align: start; 
-  border-radius: 30px;
-  display: block; 
-  transition: transform 0.3s ease;/
+  flex: 0 0 auto;
+  width: 350px;
+  height: 350px;
+  border-radius: 40px;
+  transition: transform 0.3s ease;
 }
-
 .foto50anni:hover {
-  transform: scale(1.05);
+  border-radius: 40px;
+  transform: scale(1.03);
 }
-
-.prev, .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0,0,0,0.5);
-  border: none;
-  color: white;
-  font-size: 2rem;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 50%;
-  z-index: 10;
-}
-
-.prev { left: 10px; }
-.next { right: 10px; }
-
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-.foto-container::-webkit-scrollbar {
+.prev,
+.next {
   display: none;
 }
-.prev, .next {
-  display: block; 
-}
-
 
 /* ===== OMINO CARINO ===== */
 .omino {
@@ -649,6 +625,53 @@ text-decoration:underline;
 .scritte-primaPagina{
   justify-content: center;
 }
+/*2 PARTE*/
+.foto-container {
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+  }
+
+  .foto50anni {
+    display: none;
+  }
+.prev,
+.next {
+  display: flex;                 
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;                       
+  transform: translateY(-50%);   
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgb(144, 56, 56); 
+  color: white;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 5;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  transform-origin: center;       
+}
+
+.prev {
+  left: 10px;  
+}
+
+.next {
+  right: 10px; 
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgb(144, 56, 56); 
+  transform: translateY(-50%) scale(1.15);
+}
+
 
   /* TERZA PARTE */
 .terza-parte {
@@ -694,7 +717,6 @@ text-decoration:underline;
 
 
 @media screen and (max-width: 1054px){
- 
   /*FOOTER*/
 .footer-container {
   display: grid;
@@ -743,7 +765,6 @@ nav {
   justify-content: center;
   gap: 5px;
   width: auto;
-
 }
 
 .soccorso-container {
@@ -753,7 +774,6 @@ nav {
   width: auto;
   padding-right: 0;
   gap: 5px;
-
 }
 
 .soccorso-stradale {
