@@ -98,41 +98,59 @@ h3 {
 
 /* Prima parte */
 .prima-parte {
+  position: relative;
   width: 100vw;
-  height: 690px;
+  height: 100vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;    
+  text-align: center;
+  overflow: hidden;
 }
 
 .sfondo {
-  width: 100vw;
-  height: 680px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  z-index: 0;
 }
 
 .overlay {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 120%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
 }
 
 .scritte-primaPagina {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative; 
+  z-index: 2;
   color: white;
   text-align: center;
-  font-size: 22px;
-  animation: fadeInDown 1s ease-out;
-    text-shadow:
-    -1px -1px 0 #000,
-     1px -1px 0 #000,
-    -1px  1px 0 #000,
-     1px  1px 0 #000,
-     0  4px 10px rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
 }
 
+.scritte-primaPagina h1 {
+  font-size: clamp(32px, 6vw, 70px); 
+}
 
+.scritte-primaPagina h2 {
+  font-size: clamp(24px, 4vw, 50px);
+  color: red;
+}
+
+.scritte-primaPagina h3 {
+  font-size: clamp(20px, 3vw, 40px);
+}
 
 /*seconda parte*/
 .seconda-parte {
@@ -140,7 +158,7 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 80vh;
+ height: 80vh;
   width: 100%;
   overflow: hidden;
   background-color: rgb(158, 159, 162);
