@@ -5,10 +5,14 @@
 }
 html {
   scroll-behavior: smooth;
+   overflow-x: hidden; 
+   width: 100%;
 }
 body {
   overflow-x: hidden;
+  width: 100%;
 }
+
 /* Navbar */
 nav {
   position: fixed;
@@ -100,7 +104,7 @@ h3 {
 /* Prima parte */
 .prima-parte {
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 100vh; 
   display: flex;
   justify-content: center;
@@ -308,14 +312,15 @@ h3 {
   display: none;
 }
 
-/* ===== OMINO CARINO ===== */
+/* ===== OMINO MECCANICO ===== */
 .omino {
-  position: absolute;
+  position: fixed;
   bottom: 40px;
   right: 70px;
   z-index: 5;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.5s ease;
+  opacity: 0;
 }
 .omino:hover {
   transform: translateY(-5px);
@@ -323,10 +328,21 @@ h3 {
 .testa {
   width: 42px;
   height: 42px;
-  background: white;
+  background: #fcd7b6;
   border-radius: 50%;
   margin: 0 auto;
   position: relative;
+  border: 2px solid #333;
+}
+.testa::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 0;
+  width: 100%;
+  height: 12px;
+  background: #222; 
+  border-radius: 4px;
 }
 .occhio {
   width: 6px;
@@ -349,27 +365,30 @@ h3 {
   transform: translateX(-50%);
 }
 .corpo {
-  width: 22px;
-  height: 48px;
-  background: white;
-  border-radius: 12px;
+  width: 24px;
+  height: 50px;
+  background: #004aad; 
+  border-radius: 4px;
   margin: 6px auto 0;
+  position: relative;
+  border: 2px solid #222;
 }
 .braccio {
   width: 8px;
   height: 35px;
-  background: white;
   position: absolute;
   top: 55px;
   border-radius: 10px;
 }
 .braccio.sinistro {
   left: -10px;
+  background: linear-gradient(to bottom, #004aad 0%, #f1c40f 60%); 
   transform-origin: top center;
   transform: rotate(-20deg);
 }
 .braccio.destro {
   right: -10px;
+  background: linear-gradient(to bottom, #004aad 0%, #f1c40f 60%);
   transform-origin: top center;
   transform: rotate(20deg);
 }
@@ -382,22 +401,22 @@ h3 {
 .gamba {
   width: 8px;
   height: 30px;
-  background: white;
-  border-radius: 10px;
+  background: #004aad; 
+  border-radius: 4px;
 }
 .fumetto {
   position: absolute;
-  bottom: 40%;
+  bottom: 70%;
   right: 180%;
   transform: translateY(-50%) translateX(10px);
-  background: white;
+  background: #e2dbdb;
   color: #333;
   padding: 12px 16px;
   border-radius: 14px;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 60px;
   opacity: 0;
   pointer-events: none;
   transition: all 0.3s ease;
@@ -411,9 +430,8 @@ h3 {
   transform: translateY(-100%);
   border-top: 20px solid transparent;
   border-bottom: 20px solid transparent;
-  border-left: 20px solid white;
+  border-left: 20px solid #e2dbdb;
 }
-
 .omino:hover .fumetto {
   opacity: 1;
   transform: translateY(0);
@@ -425,28 +443,21 @@ h3 {
   animation: alzaDestra 0.5s ease forwards;
 }
 @keyframes alzaSinistra {
-  from {
-    transform: rotate(20deg);
-  }
-  to {
-    transform: rotate(140deg);
-  }
+  from { transform: rotate(20deg); }
+  to { transform: rotate(140deg); }
 }
 @keyframes alzaDestra {
-  from {
-    transform: rotate(-20deg);
-  }
-  to {
-    transform: rotate(-140deg);
-  }
+  from { transform: rotate(-20deg); }
+  to { transform: rotate(-140deg); }
 }
+
 
 
 /*terza parte*/
 .terza-parte {
   position: relative;
   width: 100%;
-  height: 600px;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -773,6 +784,10 @@ text-decoration:underline;
 
 
 @media screen and (max-width: 1054px){
+    .quarta-parte {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 60px 20px; 
+  }
   /*FOOTER*/
 .footer-container {
   display: grid;
@@ -882,11 +897,17 @@ h3 {
 
 /*2 PARTE*/
 .omino {
-  transform: scale(0.7);
-  transform-origin: bottom right;
-  right: 20px;
-  bottom: 20px;
-}
+    right: 15px; 
+    bottom: 15px;
+    transform: scale(0.55);
+    transform-origin: bottom right;
+  }
+
+  .fumetto {
+    right: auto; 
+    left: -140px; 
+    width: 120px;
+  }
 
 /* TERZA PARTE */
 .terza-parte {
@@ -928,6 +949,21 @@ h3 {
 }
 .g6{
   display: none;
+}
+/* QUARTA PARTE */
+.quarta-parte {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: auto;
+  gap: 30px;
+  padding: 70px 20px;
+  box-sizing: border-box; 
+}
+
+.quarta-parte img {
+  width: 100%; 
+  height: 100%;
+  object-fit: cover;
 }
 
 /* FOOTER */
@@ -1048,4 +1084,37 @@ nav {
 .footer-section a {
   font-size: 14px;
 }
+}
+  .quarta-parte {
+    grid-template-columns: 1fr;
+    padding: 50px 15px;
+  }
+  
+/*FUMETTO*/
+.fumetto {
+  position: absolute;
+  bottom: 70%;
+  transform: translateY(-50%) translateX(10px);
+  background: #e2dbdb;
+  color: #333;
+  padding: 12px 16px;
+  border-radius: 14px;
+  font-size: 12px;
+  font-weight: 600;
+  width: 130px;
+  height: 60px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+.fumetto::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  transform: translateY(-100%);
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 20px solid #e2dbdb;
 }

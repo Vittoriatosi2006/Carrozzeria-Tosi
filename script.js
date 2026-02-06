@@ -11,7 +11,7 @@ window.addEventListener("scroll", () => {
 
 /*1 PARTE*/
 const arrow = document.getElementById("scrollToSeconda");
-const target = document.getElementById("seconda-parte");
+const target = document.getElementById("parte2");
 
 arrow.addEventListener("click", () => {
   target.scrollIntoView({
@@ -54,6 +54,56 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("resize", () => {
     showImage(currentIndex);
   });
+});
+
+// OMINO CHE CAMBIA FRASE
+const omino = document.querySelector(".omino");
+const fumetto = document.querySelector(".fumetto");
+
+const frasiSezioni = [
+  { id: "parte1", testo: "Benvenuti alla Carrozzeria F.lli Tosi! 🚗" },
+  { id: "parte2", testo: "Da oltre 50 anni all'opera 🛠️" },
+  { id: "parte3", testo: "Scopri tutti i nostri servizi 🏭" },
+  { id: "parte4", testo: "Ecco alcune nostre foto 📸" },
+  { id: "parteFooter", testo: "Passate a trovarci!📍" },
+];
+
+let currentSezione = null;
+
+const observerOmino = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      const sezione = frasiSezioni.find((s) => s.id === entry.target.id);
+      if (!sezione) return;
+
+      if (entry.isIntersecting) {
+        if (currentSezione === sezione.id) return;
+
+        currentSezione = sezione.id;
+
+        // nascondi subito l'omino
+        omino.style.opacity = "0";
+
+        // aggiorna testo e mostra omino dopo 500ms
+        setTimeout(() => {
+          fumetto.textContent = sezione.testo;
+
+          // sposta l'omino nella sezione corrente
+          const parent = document.getElementById(sezione.id);
+          parent.appendChild(omino);
+
+          // mostra omino
+          omino.style.opacity = "1";
+        }, 1500); // mezzo secondo di delay
+      }
+    });
+  },
+  { threshold: 0.5 },
+);
+
+frasiSezioni.forEach((s) => {
+  const el = document.getElementById(s.id);
+  if (el) observerOmino.observe(el);
 });
 
 /*footer*/
