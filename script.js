@@ -9,6 +9,17 @@ window.addEventListener("scroll", () => {
   }
 });
 
+/*1 PARTE*/
+const arrow = document.getElementById("scrollToSeconda");
+const target = document.getElementById("seconda-parte");
+
+arrow.addEventListener("click", () => {
+  target.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+});
+
 /*2 PARTE*/
 document.addEventListener("DOMContentLoaded", function () {
   let currentIndex = 0;
