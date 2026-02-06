@@ -312,7 +312,7 @@ h3 {
   display: none;
 }
 
-/* ===== OMINO MECCANICO ===== */
+/*OMINO*/
 .omino {
   position: fixed;
   bottom: 40px;
@@ -321,9 +321,14 @@ h3 {
   cursor: pointer;
   transition: transform 0.3s ease, opacity 0.5s ease;
   opacity: 0;
+   overflow: visible;
+  max-width: 60px;  
 }
 .omino:hover {
   transform: translateY(-5px);
+}
+.omino * {
+  max-width: 100%;
 }
 .testa {
   width: 42px;
@@ -406,31 +411,40 @@ h3 {
 }
 .fumetto {
   position: absolute;
-  bottom: 70%;
-  right: 180%;
-  transform: translateY(-50%) translateX(10px);
+  bottom: 50%;
+  right: 120%;                
+  transform: translateY(50%) translateX(-10px); 
   background: #e2dbdb;
   color: #333;
   padding: 12px 16px;
   border-radius: 14px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
-  width: 130px;
-  height: 60px;
+  max-width: 300px;           
+  min-width: 150px;         
+  height: auto;               
   opacity: 0;
   pointer-events: none;
   transition: all 0.3s ease;
   box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  white-space: normal;      
+  word-wrap: break-word;
+  z-index: 10;
 }
+
 .fumetto::after {
   content: "";
   position: absolute;
-  top: 100%;
-  right: -8px;
-  transform: translateY(-100%);
-  border-top: 20px solid transparent;
-  border-bottom: 20px solid transparent;
-  border-left: 20px solid #e2dbdb;
+  top: 50%;
+  right: -15px;               
+  transform: translateY(-50%);
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 15px solid #e2dbdb;
+}
+.omino:hover .fumetto {
+  opacity: 1;
+  transform: translateY(50%) translateX(-10px);
 }
 .omino:hover .fumetto {
   opacity: 1;
@@ -555,7 +569,7 @@ h3 {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: auto auto;
   gap: 30px;
-  padding: 70px 120px;
+  padding: 70px 200px;
   background: linear-gradient(to right, rgb(230, 230, 230), rgb(200, 200, 200));
 }
 
@@ -677,7 +691,6 @@ text-decoration:underline;
 
 
 @media screen and (max-width: 1300px){
-  
 /* PRIMA PARTE */
 .prima-parte {
   width: 100%;
@@ -692,6 +705,7 @@ text-decoration:underline;
 .scritte-primaPagina{
   justify-content: center;
 }
+
 /*2 PARTE*/
 .foto-container {
     display: flex;
@@ -763,13 +777,15 @@ text-decoration:underline;
 .quarta-parte {
   grid-template-columns: repeat(2, 1fr);
   grid-auto-rows: 260px; 
-  padding: 60px 40px;
+  padding: 60px 200px;
 }
 
 .quarta-parte img {
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 90%;
   object-fit: cover;
+  gap: 30px
+
 }
   
 .g1 { grid-column: 1; grid-row: 1; }
@@ -784,10 +800,61 @@ text-decoration:underline;
 
 
 @media screen and (max-width: 1054px){
-    .quarta-parte {
-    grid-template-columns: repeat(2, 1fr);
-    padding: 60px 20px; 
+  .quarta-parte {
+    display: flex;            
+    flex-direction: column;    
+    align-items: center;      
+    padding: 50px 20px;
+    gap: 25px;
   }
+
+  .quarta-parte > * {
+    width: 100%;
+    max-width: 420px;          
+    height: auto !important;
+  }
+
+  .quarta-parte img {
+    width: 100%;
+    height: auto !important;
+    object-fit: cover;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .g1,
+  .g3,
+  .g4,
+  .g5 {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    height: auto !important;
+  }
+
+  .g2,
+  .g6 {
+    display: none !important;
+  }
+  .omino {
+  right: 10px;
+  bottom: 10px;
+  transform: scale(0.55);
+  transform-origin: bottom right;
+  width: 60px; /* dimensione reale */
+  max-width: 60px;
+}
+
+  .fumetto {
+    max-width: 220px;
+    font-size: 12px;
+  }
+  .fumetto::after {
+    right: -12px;
+    border-left: 12px solid #e2dbdb;
+  }
+
+
+
   /*FOOTER*/
 .footer-container {
   display: grid;
@@ -928,43 +995,26 @@ h3 {
   font-size: 15px;
 }
 
-/* QUARTA PARTE */
-.quarta-parte {
-  grid-auto-rows: 210px;
-  gap: 25px;
-  padding: 50px 35px;
+/*4 PARTE*/
+.omino {
+  right: 10px;
+  bottom: 10px;
+  transform: scale(0.55);
+  transform-origin: bottom right;
+  width: 60px; 
+  max-width: 60px;
 }
 
-.g1,
-.g3,
-.g4,
-.g5 {
-  grid-column: auto;
-  grid-row: auto;
-  height: auto;
-  width: 100%;
-}
-.g2{
-  display: none;
-}
-.g6{
-  display: none;
-}
-/* QUARTA PARTE */
-.quarta-parte {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: auto;
-  gap: 30px;
-  padding: 70px 20px;
-  box-sizing: border-box; 
-}
+  .fumetto {
+    max-width: 180px;
+    font-size: 11px;
+    padding: 10px 12px;
+  }
+  .fumetto::after {
+    right: -10px;
+    border-left: 10px solid #e2dbdb;
+  }
 
-.quarta-parte img {
-  width: 100%; 
-  height: 100%;
-  object-fit: cover;
-}
 
 /* FOOTER */
 .footer-container {
@@ -1059,14 +1109,30 @@ nav {
 .testi-servizi ul {
   font-size: 15px;
 }
-
 /*4 PARTE*/
-.g2{
-  display: none;
+.omino {
+  right: 10px;
+  bottom: 10px;
+  transform: scale(0.55);
+  transform-origin: bottom right;
+  width: auto;
+  max-width: 60px; 
 }
-.g6{
-  display: none;
-}
+.fumetto {
+    bottom: 75%; 
+    left: auto;
+    right: 70px;  
+    transform: translateX(-30px) translateY(-50%); 
+    width: 140px; 
+    font-size: 11px;
+  }
+
+  .fumetto::after {
+    right: -12px; 
+    border-left: 12px solid #e2dbdb;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 
 /* FOOTER */
 .footer-container {
@@ -1085,36 +1151,5 @@ nav {
   font-size: 14px;
 }
 }
-  .quarta-parte {
-    grid-template-columns: 1fr;
-    padding: 50px 15px;
-  }
-  
-/*FUMETTO*/
-.fumetto {
-  position: absolute;
-  bottom: 70%;
-  transform: translateY(-50%) translateX(10px);
-  background: #e2dbdb;
-  color: #333;
-  padding: 12px 16px;
-  border-radius: 14px;
-  font-size: 12px;
-  font-weight: 600;
-  width: 130px;
-  height: 60px;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
-}
 
-.fumetto::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  transform: translateY(-100%);
-  border-top: 20px solid transparent;
-  border-bottom: 20px solid transparent;
-  border-left: 20px solid #e2dbdb;
-}
+ 
