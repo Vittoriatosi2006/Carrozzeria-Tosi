@@ -2,12 +2,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow-x: hidden;
 }
 html {
   scroll-behavior: smooth;
 }
-
+body {
+  overflow-x: hidden;
+}
 /* Navbar */
 nav {
   position: fixed;
@@ -198,7 +199,6 @@ h3 {
   align-items: center;
  height: 80vh;
   width: 100%;
-  overflow: hidden;
   background-color: rgb(158, 159, 162);
   padding: 0 20px; 
 }
