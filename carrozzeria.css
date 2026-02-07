@@ -320,7 +320,7 @@ h3 {
   z-index: 5;
   cursor: pointer;
   transition: transform 0.3s ease, opacity 0.5s ease;
-  opacity: 0;
+  opacity: 1;
    overflow: visible;
   max-width: 60px;  
 }
