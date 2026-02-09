@@ -8,10 +8,6 @@ html {
    overflow-x: hidden; 
    width: 100%;
 }
-body {
-  overflow-x: hidden;
-  width: 100%;
-}
 
 /* Navbar */
 nav {
@@ -27,7 +23,7 @@ nav {
   );
   z-index: 10;
   opacity: 0; 
-  transition: opacity 0.6s ease-in-out;
+  transition: opacity 0.6s ease-in-out; /* x l'apparizione della nav */
   display: flex;          
   align-items: center;    
   justify-content: space-between; 
@@ -36,28 +32,6 @@ nav {
 nav.visible {
   opacity: 1; /
 }
-h1{
-  font-size: 57px;
-}
-h2 {
-  color: red;
-  padding-top: 80px;
-}
-h3 {
-  padding: 20px 0;
-}
-
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -40%);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%);
-  }
-}
-
 .sfondo-navbar {
   width: 200px;
   height: 80px;
@@ -69,7 +43,7 @@ h3 {
   padding: 10px 25px;
   border-radius: 6px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease; /* x colorare il bottone dolcemente*/
   color: black;
   text-decoration: none;
 }
@@ -97,9 +71,8 @@ h3 {
   transition: transform 0.2s ease;
 }
 .soccorso-stradale:hover {
-  transform: scale(1.05);
+  transform: scale(1.05); /* ne aumenta le dimensioni*/
 }
-
 
 /* Prima parte */
 .prima-parte {
@@ -119,7 +92,7 @@ h3 {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* x adattare meglio lo sfondo allo spazio*/
   z-index: 0;
 }
 
@@ -135,7 +108,7 @@ h3 {
 }
 
 .scritte-primaPagina {
-  position: relative; 
+  position: relative;
   z-index: 2;
   color: white;
   text-align: center;
@@ -146,17 +119,60 @@ h3 {
 }
 
 .scritte-primaPagina h1 {
-  font-size: clamp(32px, 6vw, 70px); 
+  font-size: clamp(32px, 6vw, 70px); /* dimensione minima, in base allo shcermo, massima*/
+  margin: 0;
+  animation: slideUpFade 0.9s ease forwards;
+  animation-delay: 0.2s;
 }
 
 .scritte-primaPagina h2 {
   font-size: clamp(24px, 4vw, 50px);
   color: red;
+  margin: 0;
+  padding-top: 10px;
+  animation: slideUpFade 0.9s ease forwards;
+  animation-delay: 0.8s;
 }
 
 .scritte-primaPagina h3 {
   font-size: clamp(20px, 3vw, 40px);
+  margin: 0;
+  padding: 10px 0;
+    animation: slideUpFade 0.9s ease forwards;
+  animation-delay: 0.5s;
+
 }
+
+h1 {
+  font-size: 57px;
+}
+
+h2 {
+  color: red;
+  padding-top: 80px;
+}
+
+h3 {
+  padding: 20px 0;
+}
+
+.scritte-primaPagina h1, /*x farli partire nascosti*/
+.scritte-primaPagina h2,
+.scritte-primaPagina h3 {
+  opacity: 0;
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 .scroll-arrow {
   position: absolute;
@@ -201,7 +217,7 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
- height: 80vh;
+  height: 80vh;
   width: 100%;
   background-color: rgb(158, 159, 162);
   padding: 0 20px; 
@@ -294,10 +310,10 @@ h3 {
   align-items: center;
   gap: 80px;
   overflow-y: hidden
-
 }
+
 .foto50anni {
-  flex: 0 0 auto;
+  flex: 0 0 auto; /*non cresce, non si restringe, dimensione di partenza*/
   width: 350px;
   height: 350px;
   border-radius: 40px;
@@ -321,7 +337,7 @@ h3 {
   cursor: pointer;
   transition: transform 0.3s ease, opacity 0.5s ease;
   opacity: 1;
-   overflow: visible;
+  overflow: visible;
   max-width: 60px;  
 }
 .omino:hover {
@@ -340,7 +356,6 @@ h3 {
   border: 2px solid #333;
 }
 .testa::before {
-  content: "";
   position: absolute;
   top: -8px;
   left: 0;
@@ -427,13 +442,12 @@ h3 {
   pointer-events: none;
   transition: all 0.3s ease;
   box-shadow: 0 12px 30px rgba(0,0,0,0.25);
-  white-space: normal;      
-  word-wrap: break-word;
+  white-space: normal;  /*il testo va a capo automaticamente*/
+  word-wrap: break-word;/*le parole lunghe vanno a capo*/
   z-index: 10;
 }
 
 .fumetto::after {
-  content: "";
   position: absolute;
   top: 50%;
   right: -15px;               
@@ -657,8 +671,7 @@ h3 {
   font-size: 16px;
   gap:200px;
   color: rgba(255, 255, 255, 0.8);
-text-decoration: none;
-
+  text-decoration: none;
 }
 
 .footer-section:hover a{
@@ -716,6 +729,7 @@ text-decoration:underline;
   .foto50anni {
     display: none;
   }
+
 .prev,
 .next {
   display: flex;                 
@@ -835,6 +849,7 @@ text-decoration:underline;
   .g6 {
     display: none !important;
   }
+
   .omino {
   right: 10px;
   bottom: 10px;
@@ -848,6 +863,7 @@ text-decoration:underline;
     max-width: 220px;
     font-size: 12px;
   }
+  
   .fumetto::after {
     right: -12px;
     border-left: 12px solid #e2dbdb;
