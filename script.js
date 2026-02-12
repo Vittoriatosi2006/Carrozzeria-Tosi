@@ -57,9 +57,27 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /*OMINO*/
+// Selezioni omino e fumetto
 const omino = document.querySelector(".omino");
 const fumetto = document.querySelector(".fumetto");
 
+// Stato del fumetto (visibile o no)
+let fumettoVisibile = false;
+
+// Funzione toggle fumetto
+function toggleFumetto() {
+  fumettoVisibile = !fumettoVisibile;
+  fumetto.style.opacity = fumettoVisibile ? "1" : "0";
+}
+
+// Mostra fumetto quando clicchi/tappi sull'omino
+omino.addEventListener("click", toggleFumetto);
+omino.addEventListener("touchend", (e) => {
+  e.preventDefault(); // previene il doppio click su iOS
+  toggleFumetto();
+});
+
+// Aggiorna testo del fumetto quando la sezione entra in viewport
 const frasiSezioni = [
   { id: "parte1", testo: "Benvenuti alla Carrozzeria F.lli Tosi! 🚗" },
   { id: "parte2", testo: "Da oltre 50 anni all'opera 🛠️" },
@@ -82,26 +100,15 @@ const observerOmino = new IntersectionObserver(
       currentSezione = sezione.id;
 
       fumetto.textContent = sezione.testo;
-
-      fumetto.textContent = sezione.testo;
     });
   },
-  {
-    threshold: 0.5,
-  },
+  { threshold: 0.5 },
 );
 
+// Osserva tutte le sezioni
 frasiSezioni.forEach((s) => {
   const el = document.getElementById(s.id);
   if (el) observerOmino.observe(el);
-});
-
-omino.addEventListener("click", () => {
-  fumetto.style.opacity = 1; // mostra fumetto al click/tap
-});
-
-omino.addEventListener("touchend", () => {
-  fumetto.style.opacity = 1; // iPhone
 });
 
 /*footer*/
