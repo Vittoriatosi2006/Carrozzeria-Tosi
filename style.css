@@ -339,6 +339,9 @@ h3 {
   opacity: 1;
   overflow: visible;
   max-width: 60px;  
+   cursor: pointer;       /* iOS considera cliccabile solo se c'è cursor pointer */
+  -webkit-tap-highlight-color: transparent; /* elimina il highlight blu su tap */
+  touch-action: manipulation; /* migliora la reattività del touch */
 }
 .omino:hover {
   transform: translateY(-5px);

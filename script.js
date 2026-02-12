@@ -83,7 +83,7 @@ const observerOmino = new IntersectionObserver(
 
       fumetto.textContent = sezione.testo;
 
-      entry.target.appendChild(omino);
+      fumetto.textContent = sezione.testo;
     });
   },
   {
@@ -94,6 +94,14 @@ const observerOmino = new IntersectionObserver(
 frasiSezioni.forEach((s) => {
   const el = document.getElementById(s.id);
   if (el) observerOmino.observe(el);
+});
+
+omino.addEventListener("click", () => {
+  fumetto.style.opacity = 1; // mostra fumetto al click/tap
+});
+
+omino.addEventListener("touchend", () => {
+  fumetto.style.opacity = 1; // iPhone
 });
 
 /*footer*/
