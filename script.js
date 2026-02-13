@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
 /* OMINO */
 
 const omino = document.querySelector(".omino");
+const fumetto = document.querySelector(".fumetto");
 
 // Toggle classe active al click
 omino.addEventListener("click", () => {
