@@ -459,20 +459,21 @@ h3 {
   border-bottom: 15px solid transparent;
   border-left: 15px solid #e2dbdb;
 }
-.omino:hover .fumetto {
-  opacity: 1;
-  transform: translateY(50%) translateX(-10px);
-}
-.omino:hover .fumetto {
+
+/* Stato attivo al click */
+.omino.active .fumetto {
   opacity: 1;
   transform: translateY(0);
 }
-.omino:hover .braccio.sinistro {
+
+.omino.active .braccio.sinistro {
   animation: alzaSinistra 0.5s ease forwards;
 }
-.omino:hover .braccio.destro {
+
+.omino.active .braccio.destro {
   animation: alzaDestra 0.5s ease forwards;
 }
+
 @keyframes alzaSinistra {
   from { transform: rotate(20deg); }
   to { transform: rotate(140deg); }

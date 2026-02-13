@@ -57,24 +57,19 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /*OMINO*/
-// Selezioni omino e fumetto
+/* OMINO */
+
 const omino = document.querySelector(".omino");
-const fumetto = document.querySelector(".fumetto");
 
-// Stato del fumetto (visibile o no)
-let fumettoVisibile = false;
+// Toggle classe active al click
+omino.addEventListener("click", () => {
+  omino.classList.toggle("active");
+});
 
-// Funzione toggle fumetto
-function toggleFumetto() {
-  fumettoVisibile = !fumettoVisibile;
-  fumetto.style.opacity = fumettoVisibile ? "1" : "0";
-}
-
-// Mostra fumetto quando clicchi/tappi sull'omino
-omino.addEventListener("click", toggleFumetto);
+// Per sicurezza su iOS
 omino.addEventListener("touchend", (e) => {
-  e.preventDefault(); // previene il doppio click su iOS
-  toggleFumetto();
+  e.preventDefault();
+  omino.classList.toggle("active");
 });
 
 // Aggiorna testo del fumetto quando la sezione entra in viewport
