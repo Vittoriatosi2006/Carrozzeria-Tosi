@@ -1172,4 +1172,17 @@ nav {
 }
 }
 
- 
+/*impedisce di selezionarlo di blu al click*/
+.omino,
+.omino * {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+/*impedisce di selezionarlo di blu al click*/
+.left-points li,
+.right-points li {
+  user-select: none;
+  -webkit-user-select: none;
+}
