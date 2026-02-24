@@ -75,7 +75,10 @@ omino.addEventListener("touchend", (e) => {
 
 // Aggiorna testo del fumetto quando la sezione entra in viewport
 const frasiSezioni = [
-  { id: "parte1", testo: "Benvenuti alla Carrozzeria F.lli Tosi! 🚗" },
+  {
+    id: "parte1",
+    testo: "Chiamaci cliccando su SOCCORSO STRADALE se hai bisogno di noi!🚗",
+  },
   { id: "parte2", testo: "Da oltre 50 anni all'opera 🛠️" },
   { id: "parte3", testo: "Scopri tutti i nostri servizi 🏭" },
   { id: "parte4", testo: "Ecco alcune nostre foto 📸" },
