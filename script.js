@@ -70,9 +70,9 @@ const serviziObserver = new IntersectionObserver(
   },
 );
 
-document.querySelectorAll(".left-points, .right-points").forEach((el) => {
-  serviziObserver.observe(el);
-});
+document
+  .querySelectorAll(".left-points, .right-points")
+  .forEach((el) => serviziObserver.observe(el));
 
 /* OMINO */
 const omino = document.querySelector(".omino");
