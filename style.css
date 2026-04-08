@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family:  "Public Sans", sans-serif;
 }
 html {
   scroll-behavior: smooth;
@@ -114,51 +115,54 @@ nav.visible {
 }
 
 .scritte-primaPagina {
-  position: relative;
-  z-index: 2;
+  position: absolute; /* per posizionarle sopra l'immagine */
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: white;
-  text-align: center;
+  text-align: left;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   gap: 15px;
-    font-weight: 800;
+  z-index: 2;
 }
 
 .scritte-primaPagina h1 {
-  font-size: clamp(32px, 6vw, 70px); /* dimensione minima, in base allo shcermo, massima*/
+ font-size: clamp(56px, 5.5vw, 90px);
   margin: 0;
+  font-weight: 800;
+  line-height: 1.1;
   animation: slideUpFade 0.9s ease forwards;
   animation-delay: 0.2s;
-  font-weight: 900;
+  text-shadow: 2px 2px 12px rgba(0,0,0,0.6);
+}
+
+.scritte-primaPagina h3 {
+  font-size: clamp(12px, 2.5vw, 16px);
+  line-height: 1.4;
+  margin: 0;
+  padding-top: 5px;
+  font-weight: 400;
+  animation: slideUpFade 0.9s ease forwards;
+  animation-delay: 0.5s;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
 }
 
 .scritte-primaPagina h2 {
-  font-size: clamp(24px, 4vw, 50px);
-  color: rgb(160 25 25);
+   font-size: clamp(24px, 3.5vw, 42px);
+  color: rgb(255, 80, 80); /* colore rosso più brillante */
   margin: 0;
   padding-top: 10px;
+  font-weight: 700;
   animation: slideUpFade 0.9s ease forwards;
   animation-delay: 0.8s;
-  font-weight:  700;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
 }
 
-.scritte-primaPagina h3 {
-  font-size: clamp(20px, 3vw, 40px);
-  margin: 0;
-  padding: 10px 0;
-    animation: slideUpFade 0.9s ease forwards;
-  animation-delay: 0.5s;
-font-weight: 600;
-}
-
-
-
-.scritte-primaPagina h1, /*x farli partire nascosti*/
+.scritte-primaPagina h1,
 .scritte-primaPagina h2,
 .scritte-primaPagina h3 {
   opacity: 0;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
 }
 
 @keyframes slideUpFade {
@@ -170,6 +174,24 @@ font-weight: 600;
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Opzionale: aggiungere pulsanti sotto le scritte */
+.scritte-primaPagina .btn {
+  margin-top: 20px;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: rgb(0, 50, 150);
+  color: white;
+  transition: background 0.3s ease;
+}
+
+.scritte-primaPagina .btn:hover {
+  background-color: rgb(0, 70, 200);
 }
 
 
@@ -872,8 +894,6 @@ text-decoration:underline;
     border-left: 12px solid #e2dbdb;
   }
 
-
-
   /*FOOTER*/
 .footer-container {
   display: grid;
@@ -894,6 +914,22 @@ text-decoration:underline;
 .footer-section a {
   font-size: 14px;
 }
+}
+
+@media screen and (max-width: 1100px) and (min-width: 727px) {
+
+  .scritte-primaPagina h1 {
+    font-size: clamp(80px, 7vw, 115px);
+  }
+
+  .scritte-primaPagina h3 {
+    font-size: clamp(20px, 3vw, 28px);
+  }
+
+  .scritte-primaPagina h2 {
+    font-size: clamp(28px, 4vw, 46px);
+  }
+
 }
 
 
@@ -961,24 +997,6 @@ nav {
 .sfondo {
   width: 100%;
   height: 100vh;
-}
-
-h1 {
-  font-size: 8vw;
-  padding-bottom: 10px
-}
-
-h2 {
-  font-size: 4vw;
-}
-
-h3 {
-  padding: 20px 0;
-  font-size: 4vw;
-  line-height: 1.5;
-}
-.scritte-primaPagina{
-  justify-content: center;
 }
 
 /*2 PARTE*/
