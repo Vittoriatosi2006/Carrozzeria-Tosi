@@ -67,16 +67,24 @@ nav.visible {
 
 .soccorso-stradale {
   background-color: rgb(144, 56, 56);
-  color: white;
+  color: rgb(227, 218, 218);
   border: none;
   padding: 12px 30px;
   cursor: pointer;
   border-radius: 6px;
   text-decoration: none;
-  display: inline-block;
+  display: inline-flex;       /* cambia da inline-block */
+  align-items: center;        /* allinea icona e testo verticalmente */
+  gap: 8px;                   /* spazio tra icona e testo */
   font-weight: bold;
   transition: transform 0.2s ease;
 }
+
+.icona-macchina {
+  width: 30px;
+  height: 30px;
+}
+
 .soccorso-stradale:hover {
   transform: scale(1.05); /* ne aumenta le dimensioni*/
 }
@@ -647,7 +655,6 @@ nav.visible {
 .g6 {
   height: 380px;
   border-radius: 15px;
-
 }
 
 .quarta-parte img {
