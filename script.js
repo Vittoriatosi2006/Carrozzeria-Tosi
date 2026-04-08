@@ -56,9 +56,25 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-/*OMINO*/
-/* OMINO */
+/*3 PARTE*/
+const serviziObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate");
+      }
+    });
+  },
+  {
+    threshold: 0.3,
+  },
+);
 
+document.querySelectorAll(".left-points, .right-points").forEach((el) => {
+  serviziObserver.observe(el);
+});
+
+/* OMINO */
 const omino = document.querySelector(".omino");
 const fumetto = document.querySelector(".fumetto");
 
