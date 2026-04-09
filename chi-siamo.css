@@ -9,7 +9,7 @@ body {
   width: 100%;
   overflow-x: hidden;
   font-family: Arial, sans-serif;
-  background: #c5cad6;
+  background: #d9dff2;
 }
 
 main {
@@ -87,18 +87,27 @@ main {
   margin: 0 auto;
   font-size: 1.5rem;
   line-height: 1.8;
-  color: rgb(100, 132, 212);
+  color: #2f3e50;
   padding: 20px;
+  background: linear-gradient(
+    to bottom,
+    #fff8f0,
+    #e0e6f0
+  ); /* sfumatura calda */
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  border-left: #939dac 10px solid;
+  border-right: #939dac 10px solid;
 }
 
 /*2 parte*/
 .info-chi-siamo {
   padding: 80px 20px;
-  background: linear-gradient(to bottom, #ffffff, #9ea8c0);
   grid-column: 1 / -1;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 20px;
 }
 
 .info-chi-siamo h2 {
@@ -106,6 +115,7 @@ main {
   color: rgb(144, 56, 56);
   margin-bottom: 20px;
   text-align: center;
+  font-weight: 900;
 }
 
 .intro {
