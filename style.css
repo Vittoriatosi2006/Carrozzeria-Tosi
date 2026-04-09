@@ -677,8 +677,12 @@ nav.visible {
 
 /*footer*/
 .footer {
-  background: linear-gradient(to right, rgb(150, 157, 166), rgb(150, 150, 150));
-  color: rgb(233, 242, 242);
+ background:
+    linear-gradient(rgba(30,40,55,0.85), rgba(30,40,55,0.85)),
+    url("./foto/sfondo2.jpeg");
+  background-size: cover;
+  background-position: center;
+ color: rgba(255,255,255,0.85);
   padding: 50px 15px 15px 20px;
   font-family: sans-serif;
   font-weight: 750;
@@ -692,11 +696,11 @@ nav.visible {
 }
 
 .footer-section h3 {
-  color: rgb(144, 56, 56);
+color: #d65c5c;
   margin-bottom: 10px;
   font-weight: 900;
   text-align: left;
-  border-bottom: 2px solid rgba(144, 56, 56, 0.4);
+border-bottom: 2px solid rgba(214, 92, 92, 0.6);
   padding-bottom: 5px;
   width: fit-content;
 }
