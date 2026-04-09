@@ -36,9 +36,11 @@ nav {
   justify-content: space-between; 
   padding: 0 50px; 
 }
+
 nav.visible {
   opacity: 1; /
 }
+
 .sfondo-navbar {
   width: 200px;
   height: 80px;
@@ -50,7 +52,7 @@ nav.visible {
   padding: 10px 25px;
   border-radius: 6px;
   cursor: pointer;
-  transition: all 0.3s ease; /* x colorare il bottone dolcemente*/
+  transition: all 0.3s ease; 
   color: black;
   text-decoration: none;
 }
@@ -73,20 +75,20 @@ nav.visible {
   cursor: pointer;
   border-radius: 6px;
   text-decoration: none;
-  display: inline-flex;       /* cambia da inline-block */
-  align-items: center;        /* allinea icona e testo verticalmente */
-  gap: 8px;                   /* spazio tra icona e testo */
+  display: inline-flex;       
+  align-items: center;       
+  gap: 8px;                  
   font-weight: bold;
   transition: transform 0.2s ease;
 }
 
 .icona-macchina {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 }
 
 .soccorso-stradale:hover {
-  transform: scale(1.05); /* ne aumenta le dimensioni*/
+  transform: scale(1.05); 
 }
 
 /* Prima parte */
@@ -1013,13 +1015,23 @@ nav {
   cursor: pointer;
   border-radius: 6px;
   text-decoration: none;
-  display: inline-block;
   font-weight: bold;
   transition: transform 0.2s ease;
   padding: 7px 18px;
   font-size: 12px;
+  display: flex;        /* aggiungi */
+  align-items: center;  /* centra verticalmente */
+  gap: 3px;             /* spazio tra icona e testo */
 }
 
+
+.icona-macchina {
+  width: 20px;
+  height: 20px;
+}
+.soccorso-stradale:hover {
+  transform: scale(1.05);
+}
 .sfondo-navbar {
   width: 150px;
   height: auto;
@@ -1139,18 +1151,17 @@ nav {
   justify-content: center;
   white-space: nowrap;
 }
-.soccorso-stradale {
-  background-color: rgb(144, 56, 56);
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-  font-size: 10px;
-  padding: 6px 8px;
-  text-align: center;
-  width: 100%;
-  white-space: nowrap;
-}
+
+ .soccorso-stradale {
+    padding: 5px 10px;
+    font-size: 10px;
+    gap: 4px;
+  }
+
+  .icona-macchina {
+    width: 14px;
+    height: 14px;
+  }
 
 .sfondo-navbar {
   width: 120px;
@@ -1245,3 +1256,8 @@ nav {
   -webkit-tap-highlight-color: transparent;
 }
 
+@media screen and (max-width:400px){
+  .icona-macchina {
+    display:none
+  }
+}
